@@ -7,7 +7,7 @@
 ### Actions
 
 #### Context
-[X] - Get all contexts
-[ ] - Select as default context
-[X] - Add new context
-[ ] - Remove a context
+- [x] Get all contexts
+- [x] Select as default context
+- [x] Add new context
+- [x] Remove a context
