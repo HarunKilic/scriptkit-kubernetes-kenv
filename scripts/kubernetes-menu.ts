@@ -19,4 +19,4 @@ let cliScript = await arg(
   kubernetesManagementChoices,
 )
 
-await run(kenvPath('kenvs', 'kubernetes', 'cli', 'menus', cliScript, 'main.ts'))
+await run(projectPath('cli', 'menus', cliScript, 'main.ts'))
