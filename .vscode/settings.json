@@ -1,0 +1,33 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.gits": true,
+    "templates": true,
+    "tmp": true,
+    "db": true,
+    "cache": true,
+    "bin": true,
+    ".vscode": true,
+    ".github": true,
+    "node_modules": true,
+    ".gitignore": true,
+    "logs/.gitignore": true
+  },
+  "hide-files.files": [
+    "templates",
+    "tmp",
+    "db",
+    "cache",
+    "bin",
+    ".vscode",
+    ".github",
+    "node_modules",
+    ".gitignore",
+    "logs/.gitignore"
+  ]
+}
