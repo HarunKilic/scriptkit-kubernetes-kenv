@@ -13,4 +13,9 @@ export const kubernetesManagementChoices: Choices<KubernetesContextActions> = [
     value: KubernetesContextActions.ManageContext,
     description: 'Add, remove, and manage kubectl contexts',
   },
+  {
+    name: 'FluxCD',
+    value: KubernetesContextActions.FluxCD,
+    description: 'Manage your FluxCD deployments',
+  },
 ]
