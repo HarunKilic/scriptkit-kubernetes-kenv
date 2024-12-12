@@ -100,3 +100,18 @@ export const getContextFileByName = async (
 export const deleteContextFile = async () => {
   await unlink(join(KUBE_CONFIG_FILE))
 }
+
+export const contextSelector = async (hint?: string) => {
+  const selectedContext = await arg(
+    {
+      placeholder: 'Select a context',
+      hint,
+    },
+    await getKubeContextNames(),
+  )
+  if (!selectedContext) {
+    await contextSelector('Please select a context')
+  }
+
+  return selectedContext
+}

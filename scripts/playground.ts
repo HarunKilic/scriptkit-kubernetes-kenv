@@ -7,6 +7,7 @@ import { mergeKubeConfigs } from '../cli/functions/merge-context'
 import { disableContext } from '../cli/functions/disable-context'
 import { enableContext } from '../cli/functions/enable-context'
 import {
+  contextSelector,
   getDisabledContextNames,
   getKubeContextNames,
 } from '../cli/utils/context-helpers'
@@ -18,31 +19,14 @@ export const metadata: Metadata = {
   keyword: 'playground',
   shortcode: 'pl',
 }
-delete arg?.pass
-delete arg?.keyword
+const selectedContext = await contextSelector()
+const command = `flux check --pre --context ${selectedContext}`
+const { stderr } = await exec(command)
 
-setInput('')
-
-const disabledContextNames = Array.from(
-  new Set(await getDisabledContextNames()),
+div(
+  md(`
+ # FluxCD Precheck
+ ## Context: ${selectedContext}
+ ${stderr.toString().trim().split('\n').join('\n\n')}    
+`),
 )
-
-onTab('Enabled', async (input) => {
-  await enabledContextMenu()
-})
-
-onTab('Disabled', async (input = '') => {
-  await disabledContextMenu(disabledContextNames)
-})
-
-// await DisabledContextMenu()
-// await getKubeContextNames()
-// await disabledContextMenu()
-// await kubeMenu()
-// await enableContext('homelab-cluster')
-// await disableContext('homelab-cluster')
-// await editor({
-//   validate(input) {
-//     return false
-//   },
-// })
